@@ -21,6 +21,8 @@ public class Transactions {
     private Integer codeVerificationCard;
     private LocalDate transactionDate;
 
+    private Client client;
+
     public Transactions() {
     }
 
@@ -105,6 +107,14 @@ public class Transactions {
 
     public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override

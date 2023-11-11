@@ -17,6 +17,7 @@ public class Payables {
     private LocalDate paymentDate;
     private Double fee;
     private BigDecimal value;
+    private Client client;
 
     public String getId() {
         return id;
@@ -56,6 +57,14 @@ public class Payables {
 
     public void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override

@@ -11,5 +11,6 @@ public record TransactionFormDto (
     Integer numberCard,
     String cardHoldName,
     String cardExpirationDate,
-    Integer codeVerificationCard
+    Integer codeVerificationCard,
+    String idClient
 ){}

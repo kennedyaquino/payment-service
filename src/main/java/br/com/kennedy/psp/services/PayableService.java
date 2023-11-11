@@ -5,15 +5,14 @@ import br.com.kennedy.psp.entities.PaymentMethod;
 import br.com.kennedy.psp.entities.StatusPayable;
 import br.com.kennedy.psp.entities.Transactions;
 import br.com.kennedy.psp.repositories.PayablesRepository;
-import br.com.kennedy.psp.usescases.ICreatePayables;
+import br.com.kennedy.psp.usescases.ICreatePayablesUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Service
-public class PayableService implements ICreatePayables {
+public class PayableService implements ICreatePayablesUseCase {
 
     private PayablesRepository repository;
 
@@ -33,12 +32,14 @@ public class PayableService implements ICreatePayables {
            payables.setFee(rate);
            payables.setValue(transactions.getValue().subtract(transactions.getValue().multiply(new BigDecimal(rate))));
            payables.setPaymentDate(transactions.getTransactionDate());
+           payables.setClient(transactions.getClient());
        } else {
            double rate = 0.05;
            payables.setStatusPayable(StatusPayable.WAITING_FUNDS);
            payables.setFee(rate);
            payables.setValue(transactions.getValue().subtract(transactions.getValue().multiply(new BigDecimal(rate))));
            payables.setPaymentDate(transactions.getTransactionDate().plusDays(30));
+           payables.setClient(transactions.getClient());
        }
 
        repository.save(payables);

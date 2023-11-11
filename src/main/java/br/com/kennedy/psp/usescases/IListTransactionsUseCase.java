@@ -4,7 +4,7 @@ import br.com.kennedy.psp.entities.Transactions;
 
 import java.util.List;
 
-public interface IListTransactions {
+public interface IListTransactionsUseCase {
 
     List<Transactions> getListTransactions();
 }
