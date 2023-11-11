@@ -1,7 +1,6 @@
 package br.com.kennedy.psp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -9,6 +8,8 @@ import java.math.BigDecimal;
 @Table(name = "tb_client")
 public class Client {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private BigDecimal balancePaid;
     private BigDecimal balanceWaitingFunds;
@@ -33,15 +34,8 @@ public class Client {
         return balancePaid;
     }
 
-    public void setBalancePaid(BigDecimal balancePaid) {
-        this.balancePaid = balancePaid;
-    }
-
     public BigDecimal getBalanceWaitingFunds() {
         return balanceWaitingFunds;
     }
 
-    public void setBalanceWaitingFunds(BigDecimal balanceWaitingFunds) {
-        this.balanceWaitingFunds = balanceWaitingFunds;
-    }
 }

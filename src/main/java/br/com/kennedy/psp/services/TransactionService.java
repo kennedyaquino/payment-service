@@ -3,7 +3,7 @@ package br.com.kennedy.psp.services;
 import br.com.kennedy.psp.entities.Client;
 import br.com.kennedy.psp.entities.Transactions;
 import br.com.kennedy.psp.entities.dto.TransactionFormDto;
-import br.com.kennedy.psp.exceptions.NotFoundException;
+import br.com.kennedy.psp.services.exceptions.NotFoundException;
 import br.com.kennedy.psp.repositories.ClientRepository;
 import br.com.kennedy.psp.repositories.TransactionsRepository;
 import br.com.kennedy.psp.usescases.ICreateTransactionUseCase;
