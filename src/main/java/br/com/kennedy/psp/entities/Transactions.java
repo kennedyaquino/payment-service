@@ -24,8 +24,7 @@ public class Transactions {
     public Transactions() {
     }
 
-    public Transactions(String id, BigDecimal value, String description, PaymentMethod paymentMethod, Integer numberCard, String cardHoldName, String cardExpirationDate, Integer codeVerificationCard, LocalDate transactionDate) {
-        this.id = id;
+    public Transactions(BigDecimal value, String description, PaymentMethod paymentMethod, Integer numberCard, String cardHoldName, String cardExpirationDate, Integer codeVerificationCard, LocalDate transactionDate) {
         this.value = value;
         this.description = description;
         this.paymentMethod = paymentMethod;
