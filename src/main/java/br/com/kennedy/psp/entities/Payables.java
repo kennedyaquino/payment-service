@@ -1,15 +1,21 @@
 package br.com.kennedy.psp.entities;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_payables")
 public class Payables {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private StatusPayable statusPayable;
     private LocalDate paymentDate;
-    private Integer fee;
+    private Double fee;
     private BigDecimal value;
 
     public String getId() {
@@ -36,11 +42,11 @@ public class Payables {
         this.paymentDate = paymentDate;
     }
 
-    public Integer getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(Integer fee) {
+    public void setFee(Double fee) {
         this.fee = fee;
     }
 

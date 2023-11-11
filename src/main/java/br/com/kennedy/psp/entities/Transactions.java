@@ -1,11 +1,16 @@
 package br.com.kennedy.psp.entities;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_transactions")
 public class Transactions {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private BigDecimal value;
     private String description;
