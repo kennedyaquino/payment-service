@@ -27,7 +27,7 @@ public class TransactionService implements ICreateTransactionUseCase, IListTrans
     }
 
     @Override
-    public void createTransaction(TransactionFormDto form) {
+    public Transactions createTransaction(TransactionFormDto form) {
 
         Client client = clientRepository.findById(form.idClient()).orElseThrow(() -> new NotFoundException("Not found client id"));
 
@@ -43,8 +43,9 @@ public class TransactionService implements ICreateTransactionUseCase, IListTrans
         );
 
         transactions.setClient(client);
-
         repository.save(transactions);
+
+        return transactions;
     }
 
     @Override
